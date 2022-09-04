@@ -22,9 +22,10 @@ public class TransactionServiceImpl implements TransactionService {
 	
 
 	@Override
-	public List<Catalog> getUsers() {
-		List<Catalog> users = usersRepository.findAll();
-		if(users.isEmpty()) {
+	public List<Catalog> getUsers(String value) {
+		List<Catalog> users = value==null 
+				? usersRepository.findAll() : usersRepository.findByName(value);
+		if(users.isEmpty()) { 
 			throw new NotDataFoundException(messageSource.getMessage("sin.informacion", null, Locale.getDefault()));			
 		}
 		return users;

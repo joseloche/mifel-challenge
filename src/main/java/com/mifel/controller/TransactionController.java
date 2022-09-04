@@ -22,13 +22,12 @@ public class TransactionController {
 
     @GetMapping(value="/users/catalog")
     public ResponseEntity<?> getUserWithPayment(){
-    	return ResponseEntity.ok(transactionService.getUsers());
+    	return ResponseEntity.ok(transactionService.getUsers(null));
     }
         
-    @GetMapping(value="/user/{id}")
-    public ResponseEntity<?> getReport(@PathVariable Long id){
-//    	return ResponseEntity.ok(transactionService.getUsers(id));
-    	return null;
+    @GetMapping(value="/users/catalog/{value}")
+    public ResponseEntity<?> getReport(@PathVariable String value){
+    	return ResponseEntity.ok(transactionService.getUsers(value));
     }
 
 }

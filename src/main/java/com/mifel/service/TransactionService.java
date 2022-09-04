@@ -7,5 +7,5 @@ import com.mifel.entity.Catalog;
 public interface TransactionService {
 	
 
-	public List<Catalog> getUsers();
+	public List<Catalog> getUsers(String value);
 }
